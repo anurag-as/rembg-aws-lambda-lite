@@ -137,7 +137,7 @@ def remove(
         raise ValueError("Input type {} is not supported.".format(type(data)))
 
     if session is None:
-        session = new_session("u2net")
+        session = new_session()
 
     masks = session.predict(img)
     cutouts = []

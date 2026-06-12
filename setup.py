@@ -5,21 +5,23 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 from setuptools import setup
 
+from build_config import get_packaged_model_files, validate_packaged_model_files
 import versioneer
 
 here = pathlib.Path(__file__).parent.resolve()
+validate_packaged_model_files(here)
 
 long_description = (here / "README.md").read_text(encoding="utf-8")
 
 requires = [
-    "numpy~=1.23.5",
-    "onnxruntime~=1.13.1",
-    "opencv-python-headless~=4.6.0.66",
-    "pillow~=9.3.0",
+    "numpy>=1.26,<3",
+    "onnxruntime>=1.20.1,<1.26",
+    "opencv-python-headless>=4.10,<5",
+    "pillow>=10.3,<13",
 ]
 
 extras_require = {
-    "gpu": ["onnxruntime-gpu~=1.13.1"],
+    "gpu": ["onnxruntime-gpu>=1.20.1,<1.26"],
 }
 
 setup(
@@ -40,15 +42,15 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
-    keywords="remove, background, u2net",
+    keywords="remove, background, u2netp",
     packages=["rembg"],
-    package_data={'': ['*.onnx']},
-    include_package_data=True,
-    python_requires=">3.7, <3.11",
+    package_data={"rembg": get_packaged_model_files()},
+    include_package_data=False,
+    python_requires=">=3.10, <3.13",
     install_requires=requires,
     extras_require=extras_require,
     version=versioneer.get_version(),
