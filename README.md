@@ -1,4 +1,4 @@
-# rembg-aws-lambda
+# rembg-aws-lambda-lite
 
 Minimal `rembg` fork for Lambda-style CPU inference.
 
@@ -37,7 +37,7 @@ Compared with the upstream README and packaging behavior, this fork also documen
 ## Installation
 
 ```bash
-pip install rembg-aws-lambda
+pip install rembg-aws-lambda-lite
 ```
 
 This fork expects the requested model file to be present either:
@@ -140,7 +140,7 @@ FROM public.ecr.aws/lambda/python:3.10
 ENV OMP_NUM_THREADS=1
 ENV REMBG_PACKAGE_MODELS=u2netp
 
-RUN python -m pip install --no-cache-dir rembg-aws-lambda --target "${LAMBDA_TASK_ROOT}" \
+RUN python -m pip install --no-cache-dir rembg-aws-lambda-lite --target "${LAMBDA_TASK_ROOT}" \
     && python -c "from rembg import new_session; new_session('u2netp')"
 ```
 

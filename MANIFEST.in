@@ -3,6 +3,7 @@ include LICENSE.txt
 include README.md
 include setup.py
 include pyproject.toml
+include build_config.py
 include requirements.txt
 include requirements-gpu.txt
 

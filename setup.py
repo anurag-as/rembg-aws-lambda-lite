@@ -25,13 +25,21 @@ extras_require = {
 }
 
 setup(
-    name="rembg-aws-lambda",
+    name="rembg-aws-lambda-lite",
     description="Remove image background",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/rnag/rembg-aws-lambda",
-    author="Daniel Gatis",
-    author_email="danielgatis@gmail.com",
+    url="https://github.com/anurag-as/rembg-aws-lambda-lite",
+    author="Anurag A S",
+    author_email="sampathanurag3@gmail.com",
+    maintainer="Anurag A S",
+    maintainer_email="sampathanurag3@gmail.com",
+    project_urls={
+        "Source": "https://github.com/anurag-as/rembg-aws-lambda-lite",
+        "Issues": "https://github.com/anurag-as/rembg-aws-lambda-lite/issues",
+        "Original upstream fork": "https://github.com/rnag/rembg-aws-lambda",
+        "Original rembg project": "https://github.com/danielgatis/rembg",
+    },
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Topic :: Scientific/Engineering",

@@ -14,7 +14,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at <https://github.com/rnag/rembg-aws-lambda/issues>.
+Report bugs at <https://github.com/anurag-as/rembg-aws-lambda-lite/issues>.
 
 If  this is a general `rembg` issue, report it
 on [`danielgatis/rembg`] instead.
@@ -39,14 +39,14 @@ implement it.
 
 ### Write Documentation
 
-`rembg-aws-lambda` could always use more documentation, whether as part of the
+`rembg-aws-lambda-lite` could always use more documentation, whether as part of the
 official docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-<https://github.com/rnag/rembg-aws-lambda/issues>.
+<https://github.com/anurag-as/rembg-aws-lambda-lite/issues>.
 
 If you are proposing a feature:
 
@@ -58,15 +58,15 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up [rembg-aws-lambda](#contributing) for
+Ready to contribute? Here's how to set up [rembg-aws-lambda-lite](#contributing) for
 local development.
 
-1.  Fork the [rembg-aws-lambda](#contributing) repo on GitHub.
+1.  Fork the [rembg-aws-lambda-lite](#contributing) repo on GitHub.
 
 2.  Clone your fork locally:
 
     ```shell
-    $ git clone git@github.com:your_name_here/rembg-aws-lambda.git
+    $ git clone git@github.com:your_name_here/rembg-aws-lambda-lite.git
     ```
     #### Workaround for LFS Bandwidth
     > **_NOTE_**: If you run into issues with `git-lfs` when downloading the `*.onnx`
@@ -75,12 +75,12 @@ local development.
 
     ```shell
     # clone/pull the repo without LFS - https://stackoverflow.com/a/42021818/10237506
-    $ GIT_LFS_SKIP_SMUDGE=1 git@github.com:your_name_here/rembg-aws-lambda.git
+    $ GIT_LFS_SKIP_SMUDGE=1 git@github.com:your_name_here/rembg-aws-lambda-lite.git
     # use curl to manually download the model (*.onnx) file
     $ curl https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx \
-        -o rembg-aws-lambda/rembg/u2net.onnx
+        -o rembg-aws-lambda-lite/rembg/u2net.onnx
     # fix permissions
-    $ chmod 777 rembg-aws-lambda/rembg/*.onnx
+    $ chmod 777 rembg-aws-lambda-lite/rembg/*.onnx
     ```
 
 3. Install your local copy into a virtualenv. Assuming you have
@@ -88,8 +88,8 @@ local development.
     local development:
 
     ``` shell
-    $ mkvirtualenv rembg-aws-lambda
-    $ cd rembg-aws-lambda/
+    $ mkvirtualenv rembg-aws-lambda-lite
+    $ cd rembg-aws-lambda-lite/
     $ pip install -r requirements.txt -r requirements-dev.txt
     ```
 
@@ -131,16 +131,16 @@ Before you submit a pull request, check that it meets these guidelines:
     for PyPy. Check the following workflows, and make
     sure that they pass for all supported Python versions.
 
-    - [Lint](https://github.com/rnag/rembg-aws-lambda/actions/workflows/lint_python.yml)
-    - [Test in specific environment](https://github.com/rnag/rembg-aws-lambda/actions/workflows/test-specific-environment.yml)
-    - [Test installation](https://github.com/rnag/rembg-aws-lambda/actions/workflows/test-install.yml)
+    - [Lint](https://github.com/anurag-as/rembg-aws-lambda-lite/actions/workflows/lint_python.yml)
+    - [Test in specific environment](https://github.com/anurag-as/rembg-aws-lambda-lite/actions/workflows/test-specific-environment.yml)
+    - [Test installation](https://github.com/anurag-as/rembg-aws-lambda-lite/actions/workflows/test-install.yml)
 
 ## Tips
 
 To run a subset of tests:
 
 ``` shell
-$ pytest tests/unit/test_rembg-aws-lambda.py::test_my_func
+$ pytest tests/unit/test_rembg-aws-lambda-lite.py::test_my_func
 ```
 
 ## Deploying
@@ -175,5 +175,5 @@ $ git push && git push --tags
 ```
 
 GitHub Actions will then [deploy to
-PyPI](https://github.com/rnag/rembg-aws-lambda/actions/workflows/publish_pypi.yml) if
+PyPI](https://github.com/anurag-as/rembg-aws-lambda-lite/actions/workflows/publish_pypi.yml) if
 tests pass.
