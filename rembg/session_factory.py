@@ -25,9 +25,13 @@ def _resolve_providers() -> list[str]:
     configured_providers = os.environ.get(PROVIDERS_ENV)
 
     if configured_providers:
-        requested_providers = [provider.strip() for provider in configured_providers.split(",")]
+        requested_providers = [
+            provider.strip() for provider in configured_providers.split(",")
+        ]
         providers = [provider for provider in requested_providers if provider]
-        unsupported = [provider for provider in providers if provider not in available_providers]
+        unsupported = [
+            provider for provider in providers if provider not in available_providers
+        ]
         if unsupported:
             raise ValueError(
                 f"unsupported providers requested via {PROVIDERS_ENV}: {unsupported}"

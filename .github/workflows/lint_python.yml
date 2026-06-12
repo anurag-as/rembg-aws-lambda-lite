@@ -6,8 +6,12 @@ jobs:
     lint_python:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            - uses: actions/checkout@v6
+              with:
+                  persist-credentials: false
+            - uses: actions/setup-python@v6
+              with:
+                  python-version: "3.12"
             - run: pip install --upgrade pip wheel setuptools
             - run: pip install bandit black flake8 flake8-bugbear flake8-comprehensions isort safety mypy
             - run: mypy --install-types --non-interactive --ignore-missing-imports ./rembg
