@@ -2,7 +2,7 @@
 
 Minimal `rembg` fork for Lambda-style CPU inference.
 
-This repository is a modified fork of [`rnag/rembg-aws-lambda`](https://github.com/rnag/rembg-aws-lambda). It keeps the original MIT license and copyright notices, but narrows the package to the lightweight `u2netp` model path used by the Visa Photo App whitening container.
+This repository is a modified fork of [`rnag/rembg-aws-lambda`](https://github.com/rnag/rembg-aws-lambda). It keeps the original MIT license and copyright notices, but narrows the package to the lightweight `u2netp` model path.
 
 ## Why this fork exists
 
