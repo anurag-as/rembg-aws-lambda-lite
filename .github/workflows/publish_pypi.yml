@@ -27,6 +27,37 @@ jobs:
 
       - name: Build sdist and wheel
         run: python -m build
+        env:
+          REMBG_PACKAGE_MODELS: u2netp
+
+      - name: Verify lite wheel contents
+        run: |
+          python - <<'PY'
+          import zipfile
+          from pathlib import Path
+
+          wheels = sorted(Path("dist").glob("*.whl"))
+          if len(wheels) != 1:
+              raise SystemExit(f"expected exactly one wheel, found: {wheels}")
+
+          with zipfile.ZipFile(wheels[0]) as wheel:
+              names = set(wheel.namelist())
+
+          required = {"rembg/u2netp.onnx"}
+          forbidden = {"rembg/u2net.onnx"}
+          missing = required - names
+          present_forbidden = forbidden & names
+
+          if missing:
+              raise SystemExit(f"lite wheel is missing required files: {sorted(missing)}")
+          if present_forbidden:
+              raise SystemExit(
+                  f"lite wheel contains full-model files: {sorted(present_forbidden)}"
+              )
+
+          model_files = sorted(name for name in names if name.startswith("rembg/") and name.endswith(".onnx"))
+          print(f"verified lite model files: {model_files}")
+          PY
 
       - name: Check distributions
         run: python -m twine check --strict dist/*
